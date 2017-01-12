@@ -19,6 +19,7 @@ const mockData = require('../mock_data.json');
 
 export default class ResultsTable extends Component {
   constructor(props) {
+
     super(props);
     this.state = {
       myTableData: [
@@ -31,18 +32,18 @@ export default class ResultsTable extends Component {
       mockData: mockData
     }
   }
-  componentDidMount() {
-    console.log(this.state.mockData, 'from this.state');
-  }
+  // componentDidMount() {
+  //   console.log(this.state.mockData, 'from this.state');
+  // }
   render() {
     return (
         <Table
-          rowsCount={this.state.myTableData.length}
+          rowsCount={this.state.mockData.length}
           rowHeight={50}
           headerHeight={50}
           width={1000}
           height={500} >
-          <Column
+          {/* <Column
             header={<Cell>First Name</Cell>}
             cell={props => (
               <Cell {...props}>
@@ -50,7 +51,34 @@ export default class ResultsTable extends Component {
               </Cell>
             )}
             width={200}
+          /> */}
+          <Column
+            header={<Cell>Last Name</Cell>}
+            cell={ (...props) => (
+              <Cell
+                width={props.width}
+                height={props.height}
+                className="table__cell"
+              >
+                {this.state.mockData[props.rowIndex]}
+                
+              </Cell>
+            )}
+            width={200}
           />
+          {/* <Column
+            header={<Cell>Last Name</Cell>}
+            cell={ (width, height, rowIndex) => (
+              <Cell
+                width={100}
+                height={50}
+                className="table__cell"
+              >
+                {this.state.mockData.last_name}
+              </Cell>
+
+            )}
+          /> */}
         </Table>
     );
   }

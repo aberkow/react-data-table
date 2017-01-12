@@ -4,7 +4,9 @@ import ReactDOM from 'react-dom';
 
 // import store from './js/store';
 
-import ResultsTable from './components/ResultsTable';
+// import ResultsTable from './components/ResultsTable';
+
+import GriddleTable from './components/GriddleTable';
 
 class App extends Component {
   constructor(props) {
@@ -13,7 +15,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <ResultsTable />
+
       </div>
     );
   }
@@ -22,3 +24,5 @@ class App extends Component {
 document.addEventListener('DOMContentLoaded', function() {
   ReactDOM.render(<App />, document.getElementById('app'));
 });
+
+// <ResultsTable />
